@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JSON</title>
+    <style>
+
+    </style>
+</head>
+<body>
+
+<h2>Tabela </h2>
+
+<table id="employeeTable">
+
+    <thead>
+
+    <tr>
+        <th>Photo</th>
+        <th>ID</th>
+        <th>Name</th>
+        <th>Position</th>
+
+    </tr>
+
+    </thead>
+
+
+    <tbody>
+    <!-- Qetu dalin ne menyre dinamike te dhenat -->
+    </tbody>
+
+
+
+</table>
+
+<script>
+    const jsonData = {
+        "employees": [
+            {
+                "id": 1,
+                "name": "John Doe",
+                "position": "Developer",
+                "photo": "andi.png"
+            },
+            {
+                "id": 2,
+                "name": "Jane Smith",
+                "position": "Designer",
+                "photo": "andi.png"
+            },
+            {
+                "id": 3,
+                "name": "Bob Johnson",
+                "position": "Manager"
+            }
+        ]
+    };
+
+    // Mere elementet edhe ruaj te TableBody
+    const tableBody = document.querySelector("#employeeTable tbody");
+
+    // Iterimi neper json edhe krijimi i tabeles
+    for (let i = 0; i < jsonData.employees.length; i++) {
+
+        const employee = jsonData.employees[i];
+
+        // insertRow() e krijon nje <tr> ( table row ) element te ri
+        const row = tableBody.insertRow();
+
+
+        row.insertCell(0).innerHTML = `<img src="${employee.photo}"</img>`
+        row.insertCell(1).innerHTML = employee.id;       // Vendose content ne te paren qeli te  employee.id
+        row.insertCell(2).innerHTML = employee.name;     // Vendose content ne te paren qeli te employee.name
+        row.insertCell(3).innerHTML = employee.position; // Vendose content ne te paren qeli te employee.position
+    }
+</script>
+</body>
+</html>
